@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Aula extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nombre', 'edificio_id'];
+
+    public function edificio()
+    {
+        return $this->belongsTo(Edificio::class);
+    }
 }
